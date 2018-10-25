@@ -13,7 +13,7 @@ namespace MachinLocal.Models
         public int ClienteId { get; set; }
 
         [Required(ErrorMessage ="Es necesario introducir el nombre")]
-        [StringLength(50,ErrorMessage = "Solo se pueden introducior 50 caracteres")]
+        [StringLength(50,ErrorMessage = "Solo se pueden introducior 50 caractere")]
         public String Nombre { get; set; }
 
         [Required(ErrorMessage = "Es necesario introducir los apellidos")]
