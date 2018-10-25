@@ -149,6 +149,7 @@
     </Compile>
     <Compile Include="Models\Citas.cs" />
     <Compile Include="Models\Clientes.cs" />
+    <Compile Include="Models\MachinLocalDbContext.cs" />
     <Compile Include="Models\Servicios.cs" />
     <Compile Include="Models\Sucursales.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
