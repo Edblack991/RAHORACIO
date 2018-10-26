@@ -11,7 +11,7 @@ namespace MachinLocal.Models
     {
         public MachinLocalDbContext() : base("MachinLocalDbContext")
         {
-
+            Database.SetInitializer<MachinLocalDbContext>(new MachinLocalDbInitializer());
         }
 
         public DbSet<Servicios> Servicios { get; set; }
