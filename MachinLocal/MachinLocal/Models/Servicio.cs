@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MachinLocal.Models
 {
-    public class Servicios
+    public class Servicio
     {
         [Key]
         public int ServicioID { get; set; }
@@ -20,7 +20,6 @@ namespace MachinLocal.Models
         public String Descripcion { get; set; }
 
         [Required(ErrorMessage = "Es necesario introducir el Costo")]
-        [StringLength(8, ErrorMessage = "Solo se pueden introducior 8 caracteres")]
         public int Costo { get; set; }
     }
 }

@@ -7,7 +7,7 @@ using System.Web;
 
 namespace MachinLocal.Models
 {
-    public class Clientes
+    public class Cliente
     {
         [Key]
         public int ClienteId { get; set; }
@@ -32,7 +32,7 @@ namespace MachinLocal.Models
         [StringLength(20, ErrorMessage = "Solo se pueden introducior 20 caracteres")]
         public String Email { get; set; }
 
-        public virtual ICollection<Citas> Citas { get; set; }
+        public virtual ICollection<Cita> Citas { get; set; }
 
     }
 }

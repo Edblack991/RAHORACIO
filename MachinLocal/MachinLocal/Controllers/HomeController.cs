@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MachinLocal.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +9,14 @@ namespace MachinLocal.Controllers
 {
     public class HomeController : Controller
     {
+        
         public ActionResult Index()
         {
+            using (MachinLocalDbContext Db = new MachinLocalDbContext())
+            {
+                new MachinLocalDbInitializer().InitializeDatabase(Db);
+            }
+
             return View();
         }
 

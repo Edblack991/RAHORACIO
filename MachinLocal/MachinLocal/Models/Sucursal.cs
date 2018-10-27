@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MachinLocal.Models
 {
-    public class Sucursales
+    public class Sucursal
     {
         [Key]
         public int SucursalId { get; set; }
@@ -27,6 +27,6 @@ namespace MachinLocal.Models
         [StringLength(50, ErrorMessage = "Solo se pueden introducior 50 caracteres")]
         public String Encargado { get; set; }
 
-        public virtual ICollection<Citas> Citas { get; set; }
+        public virtual ICollection<Cita> Citas { get; set; }
     }
 }

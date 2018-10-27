@@ -1,70 +1,69 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 
 namespace MachinLocal.Models
 {
-    public class MachileLocalDbInitializer : DropCreateDataBaseIfModelChanges<MachinLocalDbContext>
+    public class MachinLocalDbInitializer : DropCreateDatabaseIfModelChanges<MachinLocalDbContext>
 
     {
         protected override void Seed(MachinLocalDbContext context)
         { 
+            context.Database.Log = Console.Write;
 
-            context.DataBase.Log = Console.Write;
-            using (DbContextTransaction dbTran = context.DataBase.BeginTransaction())
+            using (DbContextTransaction dbTran = context.Database.BeginTransaction())
              
             {
                 try
                 {
-                    List<Clientes> clientes = new List<Clientes>();
+                    List<Cliente> clientes = new List<Cliente>();
 
-                    clientes.add(new Clientes()
+                    clientes.Add(new Cliente()
                     {
                         Nombre = "Alejandro",
                         Apellidos = "Cruz Sanchez",
                         Direccion = "Escobedo, Col. Emiliano zapata, Azucena #234",
-                        Telefono = 8117428122,
-                        Email = "Alex_28@gmail.com",
-                        EnrollmentDate = DateTime.Now
+                        Telefono = "8117428122",
+                        Email = "Alex_28@gmail.com"
                     });
-                    clientes.add(new Clientes()
+                    clientes.Add(new Cliente()
                     {
                         Nombre = "Pedro",
                         Apellidos = "Armando Lopez",
                         Direccion = "Cienega, Col. portal de las salinas, vivero del rocio #105",
-                        Telefono = 8112457874,
-                        Email = "molkas291@gmail.com",
-                        EnrollmentDate = DateTime.Now
+                        Telefono = "8112457874",
+                        Email = "molkas291@gmail.com"
                     });
-                    clientes.add(new Clientes()
+                    clientes.Add(new Cliente()
                     {
                         Nombre = "Jonathan",
                         Apellidos = "Cruz Sanchez",
                         Direccion = "Escobedo, Col. jardines, Pablo A. de la garza #247",
-                        Telefono = 8117842694,
+                        Telefono = "8117842694",
                         Email = "JonaDrow23@gmail.com",
-                        EnrollmentDate = DateTime.Now
                     });
 
-                    Context.Clientes.AddRange(clientes);
+                    context.Clientes.AddRange(clientes);
                     context.SaveChanges();
 
-                    List<Servicios> servicios = new List<Servicios>();
+                    List<Servicio> servicios = new List<Servicio>();
 
-                    servicios.Add(new Servicios()
+                    servicios.Add(new Servicio()
                     {
                         NombreServicio = "frenos",
-                        Descripcion = "Cuando se  desgasta se deben sustituir los discos y las pastillas de freno.",
+                        Descripcion = "Cuando se desgasta se deben sustituir los discos y las pastillas de freno.",
                         Costo = 1200
                     });
-                    servicios.Add(new Servicios()
+                    servicios.Add(new Servicio()
                     {
                         NombreServicio = "alineacion y balanceo",
                         Descripcion = "se ajustan las llantas de un vehículo para que miren hacia el frente y  se ajustan los pesos de una llanta y su rin para mantener un equilibrio correcto entre ambos",
                         Costo = 600
                     });
-                    servicios.Add(new Servicios()
+                    servicios.Add(new Servicio()
                     {
                         NombreServicio = "carburador",
                         Descripcion = "limpieza profunda del carburador.",
@@ -74,34 +73,34 @@ namespace MachinLocal.Models
                     context.Servicios.AddRange(servicios);
                     context.SaveChanges();
 
-                    List<Sucursales> sucursales = new List<Sucursales>();
+                    List<Sucursal> sucursales = new List<Sucursal>();
 
-                    sucursales.Add(new Sucursales()
+                    sucursales.Add(new Sucursal()
                     {
                         Nombre = "Diaz",
                         Direccion = "Monterrey, Res. Abraham lincoln, Ruiz Cortinez #4053",
-                        Telefono = 83719559,
+                        Telefono = "83719559",
                         Encargado = "julio lopez"
                     });
-                    sucursales.Add(new Sucursales()
+                    sucursales.Add(new Sucursal()
                     {
                         Nombre = "Mave",
                         Direccion = " Mariano Matamoros #240",
-                        Telefono = 83404418,
+                        Telefono = "83404418",
                         Encargado = "Rolando Alvarez"
                     });
-                    sucursales.Add(new Sucursales()
+                    sucursales.Add(new Sucursal()
                     {
                         Nombre = "Mave",
                         Direccion = "Mitras centro, Av Ruiz Cortinez #2626",
-                        Telefono = 8113578949,
+                        Telefono = "8113578949",
                         Encargado = "julio lopez"
                     });
 
-                    context.Sucursales.AddRange(sucursales);
+                    context.Sucursals.AddRange(sucursales);
                     context.SaveChanges();
 
-                    dbtran.Commit(); //ejecutar cambios
+                    dbTran.Commit(); //ejecutar cambios
                 }
 
                 catch (DbEntityValidationException e)

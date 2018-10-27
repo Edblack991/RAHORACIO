@@ -7,30 +7,25 @@ using System.Web;
 
 namespace MachinLocal.Models
 {
-    public class Citas
+    public class Cita
     {
         [Key]
         public int CitaId { get; set; }
 
-        [ForeignKey("Clientes")]
-        [Required(ErrorMessage = "Es necesario introducir el id de cliente")]
-        [StringLength(10, ErrorMessage = "Solo se pueden introducior 10 caracteres")]
+        [ForeignKey("Cliente")]
         public int ClienteId { get; set; }
-        public Clientes Clientes { get; set; }
+        public Cliente Cliente { get; set; }
 
         [Required(ErrorMessage = "Es necesario introducir la placa del numero")]
-        [StringLength(10, ErrorMessage = "Solo se pueden introducior 10 caracteres")]
         public int PlacaNumero { get; set; }
 
         [Required(ErrorMessage = "Es necesario introducir la fecha")]
-        [StringLength(8, ErrorMessage = "Solo se pueden introducior 8 caracteres")]
         public DateTime FechaCita { get; set; }
 
         [Required(ErrorMessage = "Es necesario introducir el id de la sucursal")]
-        [StringLength(10, ErrorMessage = "Solo se pueden introducior 10 caracteres")]
-        [ForeignKey("Sucursales")]
+        [ForeignKey("Sucursal")]
         public int SucursalId { get; set; }
-        public Sucursales Sucursales { get; set; }
+        public Sucursal Sucursal { get; set; }
 
     }
 }

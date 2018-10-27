@@ -7,6 +7,8 @@ using System.Web;
 
 namespace MachinLocal.Models
 {
+    [DbConfigurationType(typeof(MySql.Data.Entity.MySqlEFConfiguration))]
+
     public class MachinLocalDbContext : DbContext
     {
         public MachinLocalDbContext() : base("MachinLocalDbContext")
@@ -14,13 +16,13 @@ namespace MachinLocal.Models
             Database.SetInitializer<MachinLocalDbContext>(new MachinLocalDbInitializer());
         }
 
-        public DbSet<Servicios> Servicios { get; set; }
+        public DbSet<Servicio> Servicios { get; set; }
 
-        public DbSet<Citas> Citas { get; set; }
+        public DbSet<Cita> Citas { get; set; }
 
-        public DbSet<Sucursales> Sucursales { get; set; }
+        public DbSet<Sucursal> Sucursals { get; set; }
 
-        public DbSet<Clientes> Clientes { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
